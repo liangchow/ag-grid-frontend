@@ -14,19 +14,11 @@ import {
   type ChartOptions,
 } from "chart.js";
 
-ChartJS.register(
-  LinearScale,
-  LogarithmicScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
+ChartJS.register(LinearScale, LogarithmicScale, PointElement, LineElement, Title, Tooltip, Legend)
 
 type Props = {
-  data: Row[];
-};
+  data: Row[]
+}
 
 function Chart({ data }: Props) {
 
@@ -39,7 +31,7 @@ function Chart({ data }: Props) {
           y: d.void_ratio,
         })),
     [data]
-  );
+  )
 
   const chartData: ChartData<"line"> = useMemo(
     () => ({
@@ -55,7 +47,7 @@ function Chart({ data }: Props) {
       ],
     }),
     [points]
-  );
+  )
 
   const chartOptions: ChartOptions<"line"> = {
     responsive: true,
@@ -64,7 +56,7 @@ function Chart({ data }: Props) {
       legend: { position: "top" },
       title: {
         display: true,
-        text: "Void Ratio vs Pressure",
+        text: "e-log P Curve",
       },
       tooltip: {
         callbacks: {
@@ -91,13 +83,13 @@ function Chart({ data }: Props) {
         },
       },
     },
-  };
+  }
 
   return (
-    <div style={{ height: "300px", width: "100%" }}>
-      <Line data={chartData} options={chartOptions} />;
+    <div style={{ height: "400px", width: "100%" }}>
+      <Line data={chartData} options={chartOptions} />
     </div>
   )
 }
 
-export default Chart;
+export default Chart
