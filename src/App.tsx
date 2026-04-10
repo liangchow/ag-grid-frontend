@@ -1,13 +1,20 @@
+import React, { useState } from "react";
 import './index.css'
-import GridExample from './components/GridExample';
+import Grid from './components/Grid';
+import Chart from './components/Chart';
+import { demoData } from "./utils";
+import type { Row } from "./types/Row";
 
 function App() {
  
-  return (
-    <div>
-        <GridExample />
-    </div>
-  )
+  const [data, setData] = useState<Row[]>(demoData);
+
+    return (
+      <>
+          <Chart data={data} />
+          <Grid data={data} onChange={setData} />
+      </>
+    )
 }
 
 export default App
