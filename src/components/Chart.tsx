@@ -9,12 +9,12 @@ import {
   LineElement,
   Title,
   Tooltip,
-  Legend,
   type ChartData,
   type ChartOptions,
+  type TooltipItem,
 } from "chart.js";
 
-ChartJS.register(LinearScale, LogarithmicScale, PointElement, LineElement, Title, Tooltip, Legend)
+ChartJS.register(LinearScale, LogarithmicScale, PointElement, LineElement, Title, Tooltip)
 
 type Props = {
   data: Row[]
@@ -53,17 +53,17 @@ function Chart({ data }: Props) {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-      legend: { position: "top" },
+      // legend: { position: "bottom" },
       title: {
         display: true,
         text: "e-log P Curve",
       },
       tooltip: {
         callbacks: {
-          label: (ctx) => {
-            const x = ctx.parsed.x;
-            const y = ctx.parsed.y;
-            return `Pressure: ${x.toFixed(3)}, Void Ratio: ${y.toFixed(4)}`;
+          label: (ctx: TooltipItem<"line">) => {
+            const x = ctx.parsed.x ?? 0;
+            const y = ctx.parsed.y ?? 0;
+            return `Pressure: ${x.toFixed(2)}, Void Ratio: ${y.toFixed(3)}`;
           },
         },
       },

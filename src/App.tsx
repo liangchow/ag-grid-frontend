@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import './index.css';
 import Grid from './components/Grid';
 import Chart from './components/Chart';
