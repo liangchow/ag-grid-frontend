@@ -9,6 +9,11 @@ type Props = {
 
 function Grid({ data, onChange }: Props) {
 
+  // const handleProcess = () => {
+  //       const gridData = getGridData()
+  //       onProcess(gridData); // send to backend
+  // }
+
   const columns: Column<Row>[] = [
     { ...keyColumn<Row, 'pressure'>('pressure', floatColumn), title: "Pressure"},
     { ...keyColumn<Row, 'void_ratio'>('void_ratio', floatColumn), title: "Void Ratio"},
