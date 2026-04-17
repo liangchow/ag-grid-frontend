@@ -25,3 +25,4 @@ dist-ssr
 
 # backend
 app/test
+app/venv
