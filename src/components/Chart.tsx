@@ -74,7 +74,7 @@ function Chart({ data, compressionIdx, recompressionIdx, warnings }: Props) {
     scales: {
       x: {
         type: "logarithmic",
-        suggestedMin: 0.001,
+        suggestedMin: 0.01,
         title: {
           display: true,
           text: "Pressure",
